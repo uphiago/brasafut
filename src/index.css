@@ -55,6 +55,8 @@
 
 button { touch-action: manipulation; }
 
+html { scroll-behavior: smooth; }
+
 :root {
   --bg: #000;
   --glass: rgba(255, 255, 255, 0.03);

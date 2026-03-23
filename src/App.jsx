@@ -4,9 +4,11 @@ import { LanguageProvider } from './LanguageContext'
 import LanguageSwitcher from './components/LanguageSwitcher'
 import SiteNav from './components/SiteNav'
 import Hero from './components/Hero'
+import Group from './components/Group'
+import Lineup from './components/Lineup'
 import Squad from './components/Squad'
 import Coach from './components/Coach'
-import Stats from './components/Stats'
+import History from './components/History'
 import Footer from './components/Footer'
 
 export default function App() {
@@ -33,9 +35,11 @@ export default function App() {
         <SiteNav current="brasafut" />
         <LanguageSwitcher />
         <Hero />
+        <Group />
+        <Lineup />
         <Squad />
         <Coach />
-        <Stats />
+        <History />
         <Footer />
       </div>
     </LanguageProvider>

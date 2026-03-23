@@ -1,0 +1,182 @@
+.group-wrap {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+/* ── group table ── */
+.group-table {
+  overflow: hidden;
+}
+
+.group-header {
+  padding: 14px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.group-name-badge {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,223,0,0.7);
+}
+
+.group-tbl {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.group-tbl thead tr {
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.group-tbl th {
+  padding: 10px 12px;
+  text-align: center;
+  font-family: 'GeistMono', monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+}
+
+.group-tbl th.th-team { text-align: left; }
+
+.group-tbl tbody tr {
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  transition: background 0.15s;
+}
+
+.group-tbl tbody tr:last-child { border-bottom: none; }
+.group-tbl tbody tr:hover { background: rgba(255,255,255,0.03); }
+
+.group-tbl td {
+  padding: 12px 12px;
+  text-align: center;
+  color: rgba(255,255,255,0.45);
+}
+
+.td-team { text-align: left; }
+
+.td-pts {
+  font-weight: 700;
+  color: rgba(255,255,255,0.7);
+}
+
+.team-flag { font-size: 16px; margin-right: 10px; }
+
+.team-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.7);
+}
+
+.row-brasil td { background: rgba(0,156,59,0.05); }
+.row-brasil .team-name { color: #fff; font-weight: 700; }
+.row-brasil .td-pts { color: #FFDF00; }
+
+/* ── matches ── */
+.group-matches {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.group-matches-title {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+  margin-bottom: 4px;
+}
+
+.match-card {
+  padding: 18px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.match-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.match-date {
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(255,223,0,0.7);
+  letter-spacing: 0.06em;
+}
+
+.match-time {
+  font-size: 11px;
+  color: rgba(255,255,255,0.3);
+}
+
+.match-venue {
+  font-size: 11px;
+  color: rgba(255,255,255,0.25);
+  margin-left: auto;
+}
+
+.match-teams {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.match-team {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+
+.match-team.right {
+  justify-content: flex-end;
+}
+
+.match-flag { font-size: 20px; }
+
+.match-tname {
+  font-size: 15px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.6);
+}
+
+.match-team.brasil .match-tname {
+  color: #fff;
+  font-weight: 700;
+}
+
+.match-vs {
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.2);
+  letter-spacing: 0.1em;
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .group-wrap {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .group-table { overflow-x: auto; }
+  .group-tbl { min-width: 260px; }
+  .group-tbl td, .group-tbl th { padding: 10px 8px; }
+  .match-card { padding: 14px 16px; }
+  .match-tname { font-size: 13px; }
+  .match-flag { font-size: 16px; }
+  .match-venue { display: none; }
+  .match-meta { gap: 10px; }
+}

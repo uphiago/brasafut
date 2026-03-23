@@ -1,18 +1,18 @@
 import { useLang } from '../LanguageContext'
-import { teamConfig } from '../data/team'
+import { selecao } from '../data/selecao'
 import './Coach.css'
-
-const FORMATION = [
-  { row: 'fwd', dots: ['ALE', 'CA', 'ALD'] },
-  { row: 'mid', dots: ['MC', 'VOL', 'MC'] },
-  { row: 'def', dots: ['LE', 'ZAG', 'ZAG', 'LD'] },
-  { row: 'gk',  dots: ['GOL'] },
-]
 
 export default function Coach() {
   const { lang, t } = useLang()
   const c = t.coach
-  const { coach } = teamConfig
+  const { coach } = selecao
+
+  const meta = [
+    { label: c.nationality, val: lang === 'pt-BR' ? coach.nationalityPt : coach.nationalityEn },
+    { label: c.born,        val: coach.born },
+    { label: c.since,       val: coach.since },
+    { label: c.formation,   val: coach.formation, highlight: true },
+  ]
 
   return (
     <section>
@@ -21,46 +21,41 @@ export default function Coach() {
       <p className="section-desc">{c.desc}</p>
 
       <div className="coach-wrap">
-        <div className="coach-card glass-card">
-          <div className="coach-info">
-            <div className="coach-avatar">
-              <span className="coach-avatar-icon">⚽</span>
-            </div>
-            <div className="coach-details">
-              <p className="coach-role mono">{c.role}</p>
-              <h3 className="coach-name">{coach.name}</h3>
-            </div>
+        {/* avatar + name */}
+        <div className="coach-identity glass-card">
+          <div className="coach-avatar">
+            <span className="coach-avatar-icon">⚽</span>
           </div>
-
-          <div className="coach-meta">
-            <div className="coach-meta-item">
-              <span className="coach-meta-label mono">{c.formation}</span>
-              <span className="coach-meta-val pixel">{coach.formation}</span>
-            </div>
-            <div className="coach-meta-item">
-              <span className="coach-meta-label mono">{c.style}</span>
-              <span className="coach-meta-val style">
-                {lang === 'pt-BR' ? coach.stylePt : coach.styleEn}
-              </span>
-            </div>
+          <div>
+            <p className="coach-role mono">{coach.club}</p>
+            <h3 className="coach-name pixel">{coach.name}</h3>
           </div>
         </div>
 
-        <div className="coach-pitch glass-card">
-          <div className="pitch-inner">
-            <div className="pitch-center-line" />
-            <div className="pitch-circle" />
-            {FORMATION.map((row, ri) => (
-              <div key={ri} className={`pitch-row row-${row.row}`}>
-                {row.dots.map((pos, di) => (
-                  <div key={di} className={`pitch-dot dot-${row.row}`}>
-                    <span>{pos}</span>
-                  </div>
-                ))}
-              </div>
-            ))}
-          </div>
-          <p className="pitch-label mono">{coach.formation}</p>
+        {/* meta grid */}
+        <div className="coach-meta-grid">
+          {meta.map((m, i) => (
+            <div key={i} className="coach-meta-item glass-card">
+              <span className="coach-meta-label mono">{m.label}</span>
+              <span className={`coach-meta-val${m.highlight ? ' highlight' : ''}`}>{m.val}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* style */}
+        <div className="coach-style glass-card">
+          <p className="coach-style-label mono">{c.style}</p>
+          <p className="coach-style-text">
+            {lang === 'pt-BR' ? coach.stylePt : coach.styleEn}
+          </p>
+        </div>
+
+        {/* titles */}
+        <div className="coach-titles glass-card">
+          <p className="coach-titles-label mono">{c.titles}</p>
+          <p className="coach-titles-text mono">
+            {lang === 'pt-BR' ? coach.titlesPt : coach.titlesEn}
+          </p>
         </div>
       </div>
     </section>

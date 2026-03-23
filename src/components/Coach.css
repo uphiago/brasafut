@@ -1,0 +1,198 @@
+.coach-wrap {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 20px;
+  align-items: start;
+}
+
+/* ── info card ── */
+.coach-card {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.coach-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.coach-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(0,156,59,0.1);
+  border: 1px solid rgba(0,156,59,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 28px;
+}
+
+.coach-role {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,223,0,0.6);
+  margin-bottom: 6px;
+}
+
+.coach-name {
+  font-family: 'GeistPixel', monospace;
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+}
+
+.coach-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.coach-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.coach-meta-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+}
+
+.coach-meta-val {
+  color: rgba(255,255,255,0.8);
+}
+
+.coach-meta-val.pixel {
+  font-size: 22px;
+  font-weight: 700;
+  color: #FFDF00;
+}
+
+.coach-meta-val.style {
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.55);
+}
+
+/* ── formation pitch ── */
+.coach-pitch {
+  padding: 20px 16px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.pitch-inner {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3/4;
+  background: rgba(0, 156, 59, 0.06);
+  border: 1px solid rgba(0, 156, 59, 0.2);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 16px 8px;
+  overflow: hidden;
+}
+
+.pitch-center-line {
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  top: 50%;
+  height: 1px;
+  background: rgba(0,156,59,0.2);
+}
+
+.pitch-circle {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,156,59,0.2);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.pitch-row {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.pitch-dot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+.pitch-dot > span {
+  font-size: 7px;
+  font-family: 'GeistMono', monospace;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+}
+
+.pitch-dot::before {
+  content: '';
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1.5px solid currentColor;
+}
+
+.dot-gk  { color: rgba(255,223,0,0.8); }
+.dot-gk::before  { background: rgba(255,223,0,0.15); }
+
+.dot-def { color: rgba(88,166,255,0.8); }
+.dot-def::before { background: rgba(88,166,255,0.12); }
+
+.dot-mid { color: rgba(0,156,59,0.9); }
+.dot-mid::before { background: rgba(0,156,59,0.12); }
+
+.dot-fwd { color: rgba(248,81,73,0.9); }
+.dot-fwd::before { background: rgba(248,81,73,0.12); }
+
+.pitch-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: rgba(255,223,0,0.5);
+  text-transform: uppercase;
+}
+
+/* ── responsive ── */
+@media (max-width: 900px) {
+  .coach-wrap {
+    grid-template-columns: 1fr;
+  }
+  .coach-pitch {
+    max-width: 280px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .coach-card { padding: 20px; }
+  .coach-name { font-size: 22px; }
+}

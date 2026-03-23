@@ -1,0 +1,171 @@
+/* ── filter buttons ── */
+.squad-filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+
+.squad-filter {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.03);
+  color: rgba(255,255,255,0.4);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.squad-filter:hover {
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.7);
+}
+
+.squad-filter.active {
+  background: rgba(255,223,0,0.1);
+  border-color: rgba(255,223,0,0.35);
+  color: #FFDF00;
+}
+
+/* ── grid ── */
+.squad-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 16px;
+}
+
+/* ── card ── */
+.squad-card {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.squad-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.squad-number {
+  font-size: 28px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.12);
+  line-height: 1;
+}
+
+.squad-pos {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 6px;
+  border: 1px solid currentColor;
+}
+
+.squad-pos.group-gk  { color: #FFDF00;  background: rgba(255,223,0,0.08);  border-color: rgba(255,223,0,0.25); }
+.squad-pos.group-def { color: #58a6ff;  background: rgba(88,166,255,0.08); border-color: rgba(88,166,255,0.25); }
+.squad-pos.group-mid { color: #009c3b;  background: rgba(0,156,59,0.08);   border-color: rgba(0,156,59,0.25); }
+.squad-pos.group-fwd { color: #f85149;  background: rgba(248,81,73,0.08);  border-color: rgba(248,81,73,0.25); }
+
+.squad-name {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.squad-first {
+  font-size: 13px;
+  color: rgba(255,255,255,0.45);
+  font-weight: 400;
+}
+
+.squad-last {
+  font-size: 17px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.1;
+}
+
+/* ── stats row ── */
+.squad-stats {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.squad-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  min-width: 0;
+}
+
+.squad-stat-val {
+  font-size: 16px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.85);
+  line-height: 1;
+}
+
+.squad-stat-lbl {
+  font-size: 9px;
+  color: rgba(255,255,255,0.25);
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+.squad-stat-sep {
+  width: 1px;
+  height: 24px;
+  background: rgba(255,255,255,0.06);
+  flex-shrink: 0;
+}
+
+.squad-stat-cards {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.card-yellow,
+.card-red {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 20px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #000;
+}
+
+.card-yellow { background: #FFDF00; }
+.card-red    { background: #f85149; color: #fff; }
+
+/* left accent line by group */
+.squad-card.group-gk  { border-left: 2px solid rgba(255,223,0,0.4); }
+.squad-card.group-def { border-left: 2px solid rgba(88,166,255,0.4); }
+.squad-card.group-mid { border-left: 2px solid rgba(0,156,59,0.4); }
+.squad-card.group-fwd { border-left: 2px solid rgba(248,81,73,0.4); }
+
+/* ── mobile ── */
+@media (max-width: 600px) {
+  .squad-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 12px;
+  }
+  .squad-card { padding: 16px; }
+  .squad-number { font-size: 22px; }
+  .squad-last { font-size: 15px; }
+}

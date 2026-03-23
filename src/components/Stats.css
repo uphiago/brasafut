@@ -1,0 +1,201 @@
+/* ── main record ── */
+.stats-record {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.stat-big {
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  border-left: 2px solid transparent;
+}
+
+.stat-big.win  { border-left-color: rgba(0,156,59,0.5); }
+.stat-big.draw { border-left-color: rgba(255,223,0,0.4); }
+.stat-big.loss { border-left-color: rgba(248,81,73,0.4); }
+.stat-big.total { border-left-color: rgba(255,255,255,0.1); }
+
+.stat-big-val {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.stat-big.win  .stat-big-val { color: #009c3b; }
+.stat-big.draw .stat-big-val { color: #FFDF00; }
+.stat-big.loss .stat-big-val { color: #f85149; }
+.stat-big.total .stat-big-val { color: rgba(255,255,255,0.7); }
+
+.stat-big-lbl {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+}
+
+/* ── win rate ── */
+.stats-mid {
+  margin-bottom: 20px;
+}
+
+.stats-winrate {
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.stats-winrate-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stats-mid-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+}
+
+.stats-winrate-pct {
+  font-size: 24px;
+  font-weight: 700;
+  color: #FFDF00;
+}
+
+.stats-bar-track {
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255,255,255,0.06);
+  overflow: hidden;
+}
+
+.stats-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #009c3b, #FFDF00);
+  transition: width 0.6s ease;
+}
+
+.stats-goals-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-top: 4px;
+}
+
+.stats-goals-item {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.stats-goals-val {
+  font-size: 24px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.85);
+}
+
+.stats-goals-val.dim {
+  color: rgba(255,255,255,0.35);
+}
+
+.stats-goals-lbl {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+}
+
+.stats-goals-sep {
+  width: 1px;
+  height: 32px;
+  background: rgba(255,255,255,0.07);
+}
+
+/* ── tables ── */
+.stats-tables {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.stats-table {
+  padding: 20px 24px;
+}
+
+.stats-table-title {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,223,0,0.6);
+  margin-bottom: 16px;
+}
+
+.stats-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.stats-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.stats-rank {
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.2);
+  width: 16px;
+  text-align: right;
+}
+
+.stats-pname {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.75);
+}
+
+.stats-pval {
+  font-size: 15px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.9);
+}
+
+.stats-punit {
+  font-size: 10px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.3);
+  margin-left: 2px;
+}
+
+/* ── responsive ── */
+@media (max-width: 900px) {
+  .stats-record { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .stats-record {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .stat-big { padding: 16px 12px; }
+  .stat-big-val { font-size: 32px; }
+  .stats-tables { grid-template-columns: 1fr; }
+  .stats-winrate { padding: 18px 20px; }
+  .stats-pname { font-size: 13px; }
+}

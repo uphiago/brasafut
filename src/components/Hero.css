@@ -1,0 +1,222 @@
+.hero {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 80px 40px;
+}
+
+/* ── background pitch grid ── */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 40%, black 30%, transparent 100%);
+  pointer-events: none;
+}
+
+/* ── glows Brasil ── */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-glow {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.glow-verde {
+  width: 900px;
+  height: 700px;
+  background: radial-gradient(ellipse at center,
+    rgba(0, 156, 59, 0.11) 0%,
+    rgba(0, 156, 59, 0.04) 45%,
+    transparent 70%
+  );
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.glow-amarelo {
+  width: 500px;
+  height: 400px;
+  background: radial-gradient(ellipse at center,
+    rgba(255, 223, 0, 0.07) 0%,
+    transparent 65%
+  );
+  top: -80px;
+  right: -80px;
+}
+
+.hero-fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 220px;
+  background: linear-gradient(to bottom, transparent, var(--bg));
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ── content ── */
+.hero-content {
+  max-width: 680px;
+  text-align: center;
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-badge {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 223, 0, 0.6);
+  margin-bottom: 20px;
+}
+
+.hero-title {
+  font-size: clamp(56px, 10vw, 100px);
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, #fff 0%, rgba(255,223,0,0.85) 60%, rgba(0,156,59,0.9) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-tagline {
+  font-size: clamp(18px, 3vw, 26px);
+  font-weight: 600;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 12px;
+}
+
+.hero-sub {
+  font-size: 16px;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.65;
+  margin-bottom: 48px;
+  max-width: 460px;
+}
+
+/* ── próximo jogo ── */
+.hero-next {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.hero-next-label {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+}
+
+.hero-next-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 28px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  backdrop-filter: blur(12px);
+}
+
+.hero-next-date {
+  font-size: 11px;
+  color: rgba(255,223,0,0.6);
+  letter-spacing: 0.1em;
+}
+
+.hero-next-match {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.hero-next-team {
+  font-size: 16px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.85);
+}
+
+.hero-next-team.opp {
+  color: rgba(255,255,255,0.5);
+}
+
+.hero-next-vs {
+  font-size: 11px;
+  color: rgba(255,255,255,0.25);
+  letter-spacing: 0.1em;
+}
+
+.hero-next-venue {
+  font-size: 11px;
+  color: rgba(255,255,255,0.25);
+}
+
+/* ── scroll hint ── */
+.hero-scroll-hint {
+  position: absolute;
+  bottom: 48px;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  z-index: 3;
+  animation: hintFloat 3s ease-in-out infinite;
+}
+
+@keyframes hintFloat {
+  0%, 100% { transform: translateY(0);   opacity: 0.55; }
+  50%       { transform: translateY(4px); opacity: 0.9; }
+}
+
+.scroll-line {
+  width: 1px;
+  height: 36px;
+  background: linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.55) 100%);
+}
+
+.hero-scroll-hint span {
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.6);
+  font-family: 'GeistMono', monospace;
+  text-transform: uppercase;
+}
+
+/* ── mobile ── */
+@media (max-width: 600px) {
+  .hero { padding: 60px 24px; }
+  .hero-sub { font-size: 14px; }
+  .hero-next-card { padding: 14px 20px; }
+  .hero-next-match { gap: 10px; }
+  .hero-next-team { font-size: 14px; }
+  .hero-scroll-hint { bottom: calc(env(safe-area-inset-bottom, 0px) + 28px); }
+}
